@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/pages/typography', function () {
+    return view('pages.typography');
+});
+
+Route::get('/pages/helper-classes', function () {
+    return view('pages.helper-classes');
 });
