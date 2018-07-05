@@ -1,5 +1,4 @@
 @extends('mylayout')
-
 @section('content')
 <div class="container-fluid">
     <div class="block-header">

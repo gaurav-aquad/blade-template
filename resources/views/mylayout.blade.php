@@ -300,43 +300,45 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="{{url('/')}}">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('/pages/typography')}}">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('/pages/helper-classes')}}">
-                            <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
+
+                        <li class="{{(isset($page) && $page && $page=='home') ? 'active' : ''}}">
+                            <a href="{{url('/')}}">
+                                <i class="material-icons">home</i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="{{(isset($page) && $page && $page=='typography') ? 'active' : ''}}">
+                            <a href="{{url('/pages/typography')}}">
+                                <i class="material-icons">text_fields</i>
+                                <span>Typography</span>
+                            </a>
+                        </li>
+                        <li class="{{(isset($page) && $page && $page=='helper-classes') ? 'active' : ''}}">
+                            <a href="{{url('/pages/helper-classes')}}">
+                                <i class="material-icons">layers</i>
+                                <span>Helper Classes</span>
+                            </a>
+                        </li>
+                    
+                    <li class="{{(isset($widgets) && $widgets) ? 'active' : ''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">widgets</i>
                             <span>Widgets</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="{{(isset($widgets) && $widgets && ($widgets=='basic' || $widgets=='colored' || $widgets=='no-header')) ? 'active' : ''}}">
                                 <a href="javascript:void(0);" class="menu-toggle">
                                     <span>Cards</span>
                                 </a>
                                 <ul class="ml-menu">
-                                    <li>
-                                        <a href="pages/widgets/cards/basic.html">Basic</a>
+                                    <li class="{{(isset($widgets) && $widgets && $widgets=='basic') ? 'active' : ''}}">
+                                        <a href="{{url('/pages/widgets/cards/basic')}}">Basic</a>
                                     </li>
-                                    <li>
-                                        <a href="pages/widgets/cards/colored.html">Colored</a>
+                                    <li class="{{(isset($widgets) && $widgets && $widgets=='colored') ? 'active' : ''}}">
+                                        <a href="{{url('/pages/widgets/cards/colored')}}">Colored</a>
                                     </li>
-                                    <li>
-                                        <a href="pages/widgets/cards/no-header.html">No Header</a>
+                                    <li class="{{(isset($widgets) && $widgets && $widgets=='no-header') ? 'active' : ''}}">
+                                        <a href="{{url('/pages/widgets/cards/no-header')}}">No Header</a>
                                     </li>
                                 </ul>
                             </li>
