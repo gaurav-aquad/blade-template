@@ -290,7 +290,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
 
-                        <li class="{{(isset($page) && $page && $page=='home') ? 'active' : ''}}">
+                        <li class="{{(!isset($page) || !$page || $page=='home') ? 'active' : ''}}">
                             <a href="{{url('/')}}">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
@@ -319,7 +319,7 @@
                                 <span>Helper Classes</span>
                             </a>
                         </li>
-                    
+
                     <li class="{{(isset($widgets) && $widgets) ? 'active' : ''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">widgets</i>

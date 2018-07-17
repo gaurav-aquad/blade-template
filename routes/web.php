@@ -10,27 +10,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('pages')->group(function () {
 
-Route::get('/', function () {
-    return view('home', ['page' => 'home']);
+  Route::get('typography', 'PagesController@typography');
+  Route::get('helper-classes', 'PagesController@helperClasses');
+
+  Route::prefix('widgets')->group(function () {
+
+    Route::prefix('cards')->group(function () {
+
+      Route::get('basic', 'PagesController@cardsBasic');
+      Route::get('colored', 'PagesController@cardsColored');
+      Route::get('no-header', 'PagesController@cardsNoHeader');
+    });
+  });
 });
 
-Route::get('/pages/typography', function () {
-    return view('pages.typography', ['page' => 'typography']);
+Route::get('/', 'PagesController@home');
+
+Route::get('/logout', function() {
+  Auth::logout();
+  return redirect()->route('login');
 });
 
-Route::get('/pages/helper-classes', function () {
-    return view('pages.helper-classes', ['page' => 'helper-classes']);
-});
-
-Route::get('/pages/widgets/cards/basic', function () {
-    return view('pages.widgets.cards.basic', ['widgets' => 'basic']);
-});
-
-Route::get('/pages/widgets/cards/colored', function () {
-    return view('pages.widgets.cards.colored', ['widgets' => 'colored']);
-});
-
-Route::get('/pages/widgets/cards/no-header', function () {
-    return view('pages.widgets.cards.no-header', ['widgets' => 'no-header']);
-});
+Auth::routes();
